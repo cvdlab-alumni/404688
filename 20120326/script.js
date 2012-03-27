@@ -72,13 +72,13 @@ var drawCilinder = function(r,h,n,m,color){
 */
 
 var drawSphere = function(r,n,color){
-	var sphereDomain = DOMAIN([[0,2*PI],[0,PI]])([n,n]);
+	var sphereDomain = DOMAIN([[0,PI],[0,2*PI]])([n,n]);
 	var sphere = MAP(function(p){
-		var u = p[0];
-		var v = p[1]-PI/2;
-
-		return [r*Math.sin(u)*Math.cos(v),r*Math.sin(u)*Math.sin(v),r*Math.cos(u)];
+		var u = p[0]-PI/2;
+		var v = p[1];
+		return [r*Math.cos(u)*Math.sin(v),r*Math.cos(u)*Math.cos(v),r*Math.sin(u)];
 	})(sphereDomain);
 	COLOR(color)(sphere);
-	DRAW(sphere);
+    DRAW(sphere);
+
 };
