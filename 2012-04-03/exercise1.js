@@ -146,8 +146,6 @@ var rCrossPillar = STRUCT(REPLICA(4)([tCrossPillar,T([0])([(6+1/3)])]));
 
 var gridCrossPillar = STRUCT(REPLICA(2)([rCrossPillar,T([1])([7])]));
 
-/* Roof */
-var roof1 = grid(0.3,13.3,3.1,9.6,9.6,0.1);
 /*Plan */
 
 var plan = STRUCT([base,muriVetro,panca1,portaVetro1,portaVetro2,muroA,muriGranito,bagno,gridCrossPillar]);

@@ -198,3 +198,5 @@ var base = STRUCT([zona1,zona2,zona3,zona4,zona5,zona6,zona7,
 					piscine,statua,muriPiscina1,muriPiscina2,
 					muroPanca,muroInterno,muroIngresso,muriBagno,
 					panca1,scale,muriVetro,roofs,gridCrossPillar]);
+
+DRAW(base);

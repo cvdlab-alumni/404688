@@ -199,3 +199,5 @@ COLOR([0.9,0.94,0.75])(roofs);
 var base = STRUCT([plan,piscine,statua,muriPiscina1,muriPiscina2,
 					muroPanca,muroInterno,muroIngresso,muriBagno,
 					panca1,scale,muriVetro,roofs,gridCrossPillar]);
+
+DRAW(base);

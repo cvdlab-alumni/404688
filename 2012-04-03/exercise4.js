@@ -197,28 +197,18 @@ var roofs = STRUCT([roof1,roof2]);
 COLOR([0.9,0.94,0.75])(roofs);
 
 /* Forniture */
-var grid = function(x,y,z,dy,dx,dz){
-	var tx = x || 0;
-	var ty = y || 0;
-	var tz = z || 0;
-	var dw = dx || 1;
-	var dh = dy || 1;
-	var dp = dz || 0.1;
-
-	var mygrid = STRUCT([SIMPLEX_GRID([[dw],[dh],[dp]])]);
-	
-	return	T([0,1,2])([tx,ty,tz])(mygrid);
-}
 var braccioli = STRUCT(REPLICA(2)([grid(0.1,0,0.1,0.2,1,1),T([1])([1])]));
 var sedile = grid(0.1,0.2,0.1,1,1,0.5);
 var schienale = grid(0,0,0.1,1.2,0.1,1.5);
 var poltrona = STRUCT([braccioli,sedile,schienale]);
 COLOR([0.86,0.80,0.69])(poltrona);
 var poltrone = STRUCT(REPLICA(2)([poltrona,T([1])([3.5])]));
-var poltroneIngresso = T([0,1])([32.5,7])(poltrone);
+var poltroneIngresso = T([0,1])([32.5,8])(poltrone);
 
-var poltroneInterne = T([0,1])([42,7.5])(R([2])([-PI])(poltrona));
+var poltroneInterne = T([0,1])([42,8.5])(R([2])([-PI])(poltrona));
 
 var base = STRUCT([plan,piscine,statua,muriPiscina1,muriPiscina2,
 					muroPanca,muroInterno,muroIngresso,muriBagno,
 					panca1,scale,muriVetro,roofs,gridCrossPillar,poltroneInterne,poltroneIngresso]);
+
+DRAW(base);
