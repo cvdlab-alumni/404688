@@ -44,7 +44,7 @@ var drawCircle = function(r,n){
 	var circ = MAP(function(p){
 		var u = p[0];
 
-		return [r*Math.cos(u),r*Math.sin(u)];
+		return [r*Math.cos(u)sin(u-(PI/2)),r*Math.sin(u)*cos(u-(PI/2))];
 	})(domainCircle);
 	DRAW(circ);
 };
