@@ -142,4 +142,4 @@ var fuselage = function() {
 	return planeFuselage;
 };
 
-//DRAW(fuselage());
+DRAW(fuselage());

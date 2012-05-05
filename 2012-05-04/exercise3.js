@@ -147,4 +147,4 @@ var stabilizer = function() {
 	return planeStabilizer;
 };
 
-//DRAW(stabilizer());
+DRAW(stabilizer());

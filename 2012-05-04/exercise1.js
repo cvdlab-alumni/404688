@@ -88,4 +88,4 @@ var wing = function() {
 	return planeWing;
 };
 
-//DRAW(COLOR([1,1,0,1])(wing()));
+DRAW(COLOR([1,1,0,1])(wing()));
