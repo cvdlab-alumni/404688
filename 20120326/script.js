@@ -71,14 +71,16 @@ var drawCilinder = function(r,h,n,m,color){
 	in cui suddividere il dominio e un array di colori [r,g,b]
 */
 
-var drawSphere = function(r,n,color){
+var Sphere = function(r,n,color){
 	var sphereDomain = DOMAIN([[0,PI],[0,2*PI]])([n,n]);
 	var sphere = MAP(function(p){
 		var u = p[0]-PI/2;
 		var v = p[1]-PI;
 		return [r*Math.cos(u)*Math.sin(v),r*Math.cos(u)*Math.cos(v),r*Math.sin(u)];
 	})(sphereDomain);
-	COLOR(color)(sphere);
-    DRAW(sphere);
+	sphere = COLOR(color)(sphere);
+    return sphere;
 
 };
+
+var sph = T([1,2])([3,2.5])(Sphere(0.5,30,[1,0,0,1]);
