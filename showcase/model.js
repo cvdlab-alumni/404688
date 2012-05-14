@@ -185,7 +185,7 @@ var companionCUBECubes = function(l) {
 		var c = l / 10;
 		var t = l + (c / 2);
 		return function(color) {
-			var color = color || [0.5, 0.5, 0.5, 1];
+			var color = color || [0.65, 0.65, 0.65, 1];
 			return COLOR(color)(T([0, 1, 2])([-t, -t, -t])(SIMPLEX_GRID([
 				[l, -c, l],
 				[l, -c, l],
@@ -316,12 +316,12 @@ var putOnEdges = function(m) {
 	};
 
 var companionCUBE = function() {
-		var base = companionCUBEBase(1)([1,0.43,0.78,1]);
+		var base = companionCUBEBase(1)([0.93,0.507,0.93,1]);
 		var disks = putOnCubeFaces(T([1])([-1.05])(companionCUBEDiskOfLove(0.4, 0.2)([
 			[0, 0, 0.3],
 			[-0.3, 0, 0.3],
 			[0, 0, 0]
-		])([1,0.43,0.78,1])));
+		])([0.93,0.507,0.93,1])));
 		var corner = COLOR([1,1,1,1])(T([0, 1, 2])([-1.05, -1.05, -1.05])(companionCUBECorner([
 			[0.75, 0.15, 0.4],
 			[0.6, 0, 0.35]
