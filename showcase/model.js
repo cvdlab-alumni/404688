@@ -1,9 +1,7 @@
-var domain = INTERVALS(1)(30);
-
 var domain2 = DOMAIN([
 	[0, 1],
 	[0, 1]
-])([45, 30]);
+])([15,15]);
 
 var quarter = function(args) {
 		var x = args[0] || 1;
@@ -73,7 +71,7 @@ var cornerRECTANGLE = function(args) {
 			var w = dims[0] || 1;
 			var h = dims[1] || 1;
 			var p = dims[2] || 1;
-			return SIMPLICIAL_COMPLEX([
+			return (SIMPLICIAL_COMPLEX([
 				[x, y, z],
 				[x + w, y, z],
 				[x + w, y + h, z + p],
@@ -81,15 +79,15 @@ var cornerRECTANGLE = function(args) {
 			])([
 				[0, 1, 2],
 				[0, 2, 3]
-			]);
+			]));
 		}
 	};
 
 var cornerPARALLELEPIPID = function(args) {
-		return SIMPLICIAL_COMPLEX([args[0], args[1], args[2], args[3]])([
+		return (SIMPLICIAL_COMPLEX([args[0], args[1], args[2], args[3]])([
 			[0, 1, 2],
 			[0, 2, 3]
-		]);
+		]));
 	};
 
 var companionCUBECorner = function(args) {
@@ -109,7 +107,7 @@ var companionCUBECorner = function(args) {
 			var cp2 = cornerPARALLELEPIPID([p2.reverse(), p1.reverse(), [0, p1[1], p1[2]],
 				[0, p2[1], p2[2]]
 			]);
-			var tr1 = STRUCT([cp1, cp2]);
+			var tr1 = (STRUCT([cp1, cp2]));
 			p2.reverse();
 			p1.reverse();
 			var t2 = T([0])([p2[0]])(S([0])([-1])(t1));
@@ -119,9 +117,16 @@ var companionCUBECorner = function(args) {
 			var r2 = R([0, 2])(-PI / 2)(S([2])([-1])(r1));
 			var r3 = T([0, 2])([-p1[1], -p1[1]])(R([0, 1])(PI / 2)(S([2])([-1])(r1)));
 			var cornerFacet = STRUCT([
-			MAP(BEZIER(S1)([a1, c1]))(dom), MAP(BEZIER(S1)([a2, c2]))(dom), MAP(BEZIER(S1)([c1, c2]))(dom), MAP(BEZIER(S1)([a1, a2]))(dom), tr1]);
+				MAP(BEZIER(S1)([a1, c1]))(dom), 
+				MAP(BEZIER(S1)([a2, c2]))(dom), 
+				MAP(BEZIER(S1)([c1, c2]))(dom), 
+				MAP(BEZIER(S1)([a1, a2]))(dom), 
+				tr1]);
 			return STRUCT([
-			T([1])([-p1[1]])(cornerFacet), T([2])([-p1[1]])(R([0, 1])(PI / 2)(R([1, 2])(PI / 2)(cornerFacet))), T([0])([-p1[1]])(R([0, 1])(PI / 2)(S([1])([-1])(cornerFacet))), t1, t2, t3, t4, r1, r2, r3]);
+				T([1])([-p1[1]])(cornerFacet), 
+				T([2])([-p1[1]])(R([0, 1])(PI / 2)(R([1, 2])(PI / 2)(cornerFacet))), 
+				T([0])([-p1[1]])(R([0, 1])(PI / 2)(S([1])([-1])(cornerFacet))), 
+				t1, t2, t3, t4, r1, r2, r3]);
 		}
 	};
 
@@ -155,7 +160,7 @@ var heart = function(cPoints) {
 var frontalDisk = function(radius, extDim) {
 		var r = radius || 1;
 		var ex = extDim || 0.2;
-		return T([1])([ex / 2])(R([1, 2])(PI / 2)(EXTRUDE([ex])(DISK(r)([64, 8]))))
+		return T([1])([ex / 2])(R([1, 2])(PI / 2)((EXTRUDE([ex])(DISK(r)([64, 8])))))
 	};
 
 var companionCUBEDiskOfLove = function(r, hlist) {
@@ -322,15 +327,13 @@ var companionCUBE = function() {
 			[0.6, 0, 0.35]
 		])(domain2)));
 		var corners = putOnCorner(corner);
-
-		// Edges are commented because it's very heavy to compute all this mess together
-		// var edge = T([0, 1])([1.05, -1.05])(S([0, 1, 2])([0.7, 0.7, 0.5])(companionCUBESideClip()));
-		// var edges = putOnEdges(edge);
+		var edge = T([0, 1])([1.05, -1.05])(S([0, 1, 2])([0.7, 0.7, 0.5])(companionCUBESideClip()));
+		var edges = putOnEdges(edge);
 		var companionCUBE01 = STRUCT([
 			base,
 			disks, 
-			corners
-			// edges
+			corners,
+			edges
 			]);
 		return companionCUBE01;
 	};
