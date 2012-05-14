@@ -1,0 +1,1 @@
+"The Enrichment Center reminds you that the <a href="http://en.wikipedia.org/wiki/Portal_(video_game)">Weighted Companion Cube</a> will never threaten to stab you and, in fact, cannot speak. In the event that the Weighted Companion Cube does speak, the Enrichment Center urges you to disregard its advice." -GLaDOS
