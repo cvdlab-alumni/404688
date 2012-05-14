@@ -311,13 +311,13 @@ var putOnEdges = function(m) {
 	};
 
 var companionCUBE = function() {
-		var base = companionCUBEBase(1)([1, 0.74, 1, 1]);
+		var base = companionCUBEBase(1)([1,0.43,0.78,1]);
 		var disks = putOnCubeFaces(T([1])([-1.05])(companionCUBEDiskOfLove(0.4, 0.2)([
 			[0, 0, 0.3],
 			[-0.3, 0, 0.3],
 			[0, 0, 0]
 		])([1,0.43,0.78,1])));
-		var corner = COLOR([0.875, 0.875, 0.875, 1])(T([0, 1, 2])([-1.05, -1.05, -1.05])(companionCUBECorner([
+		var corner = COLOR([1,1,1,1])(T([0, 1, 2])([-1.05, -1.05, -1.05])(companionCUBECorner([
 			[0.75, 0.15, 0.4],
 			[0.6, 0, 0.35]
 		])(domain2)));
