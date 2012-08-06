@@ -160,7 +160,7 @@ var heart = function(cPoints) {
 var frontalDisk = function(radius, extDim) {
 		var r = radius || 1;
 		var ex = extDim || 0.2;
-		return T([1])([ex / 2])(R([1, 2])(PI / 2)((EXTRUDE([ex])(DISK(r)([64, 8])))))
+		return T([1])([ex / 2])(R([1, 2])(PI / 2)((EXTRUDE([ex])(DISK(r)([48, 8])))))
 	};
 
 var companionCUBEDiskOfLove = function(r, hlist) {
