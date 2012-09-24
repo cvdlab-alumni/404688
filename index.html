@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>CG Final Project: Leonardo's five domes church</title>
+<meta name="keywords" content=" " />
+<meta name="description" content=" " />
+<meta charset="utf-8" />
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+<!-- Pirobox-->
+
+<link href="css_pirobox/style_5/style.css" rel="stylesheet" type="text/css" />
+<!-- 
+<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+
+<script type="text/javascript" src="js/jquery-ui-1.8.23.custom.min.js"></script>
+
+
+-->
+<script type="text/javascript" src="js/jquery_1.5-jquery_ui.min.js"></script>
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2'></script>
+<script type="text/javascript" src="js/pirobox_extended_feb_2011.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $.piroBox_ext({
+    piro_speed :700,
+    bg_alpha : 0.8,
+    piro_scroll : false,
+    piro_drag : false,
+    piro_nav_pos: 'bottom'
+});
+});
+</script>
+ 
+<!-- that's IT-->
+<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+    <script type="text/javascript">
+        $(function() {
+            var offset = $("#sidebar").offset();
+            var sidebar_h = $("#sidebar").outerHeight(1);
+            var footer = $('footer').offset();
+            var topPadding = 15;
+            $(window).scroll(function() {
+                console.log($(window).scrollTop());
+                if (($(window).scrollTop() > offset.top) && (($(window).scrollTop() + sidebar_h) < footer.top)) {
+                    $("#sidebar").stop().animate({
+                        marginTop: $(window).scrollTop() - offset.top + topPadding
+                    });
+                } else {
+                    if (($(window).scrollTop() + sidebar_h) >= footer.top) {
+                        $("#sidebar").stop().animate({
+                            marginTop: footer.top - sidebar_h
+                        });
+                    } else {
+                        $("#sidebar").stop().animate({
+                            marginTop: 0
+                        });
+                    };
+                };
+            });
+        });
+    </script>
+</head>
+<body>
+
+	<div id="wrapper">
+    
+        <nav>
+            <ul class="menu">
+                <li><a class="active" title="home" href="index.html">Home</a></li>
+                <li><a href="index.html#plasm">Plasm model description</a></li>
+                <li><a href="https://github.com/Rayzen/cg-project/blob/gh-pages/project/testProject.js">Source</a></li>
+                <li><a title="gallery" href="index.html#gallery">Gallery</a></li>
+                <!--<li><a title="contact us" href="index.html">Contact Me</a></li>-->
+            </ul>
+        </nav>
+        
+        <header>
+        	<h1><a title="html5 template" href="index.html">Leonardo's Five Domes Church</a></h1>
+        </header>
+      
+        <section id="main" class="clearfix">
+          
+            <section id="content">
+    
+                <article id="history">
+                    <h2>Central plan in architecture</h2>
+                    <a title="" href="index.html"><a href="http://1.bp.blogspot.com/-rjHthLgDz7E/TgJbiWjtByI/AAAAAAAAAE0/VXNmVb8GnP4/s1600/Bramante%253B%252Bplan%252Bfor%252BSt.%252BPeter%2527s.jpg" rel="single" class="pirobox" title="Central plan church example"><img class="imgright" alt="" src="http://1.bp.blogspot.com/-rjHthLgDz7E/TgJbiWjtByI/AAAAAAAAAE0/VXNmVb8GnP4/s1600/Bramante%253B%252Bplan%252Bfor%252BSt.%252BPeter%2527s.jpg" /></a>
+                    <p>In architecture the central plan characterizes those buildings which are organized around a symmetric center. Elements that make the plan are regular geometrical shapes like square, circle, octagon, ellipse; spacial centrality usually is underlined by a dome. In the case of a circular plan building it is called "rotonda" while religious building it is called greek cross.</p>
+                    <p>Studies about central plan reached their apex during Reinassence: the centralized architectonic topology favoured a rational-geometric synthesis of the building elements, with all the religious implications about nature and divine representation. Indeed according to an old religious symbology dome was someway assimilated to sky.</p>
+                   <!--
+                    <p> In architettura, la pianta centrale caratterizza quegli edifici in cui tutte le parti sono organizzate intorno ad un centro (simmetria centrale). Gli elementi che costituiscono la forma della pianta sono figure geometriche regolari, quali il quadrato, il cerchio, l'ottagono, la croce greca, l'ellisse; la centralità dello spazio solitamente è sottolineata da una cupola. Nel caso di un edificio a pianta circolare, si parla più specificamente di rotonda, mentre nel caso di un edificio religioso con bracci si parla di pianta a croce greca.</p>
+                    <p> L'apice degli studi sulla pianta centrale fu raggiunto durante il Rinascimento: la tipologia architettonica centralizzata favoriva una sintesi geometrico-razionale delle parti dell'edificio, con tutti i risvolti simbolici legati al cerchio, che per Marsilio Ficino era forma prediletta della natura e rappresentazione divina; inoltre la cupola, secondo un'antichissima simbologia religiosa, era assimilata al cielo.</p>
+                     -->
+                </article>
+                
+                <article id="description">
+                    <h2>Description</h2>
+                    <a title="" href="index.html"><a href="images/00026_01.jpg" rel="single"  class="pirobox" title="Plastic Model"><img class="imgright" alt="plastic_model" width="100px" height="80px" src="images/00026_01.jpg" /></a></a>
+
+                    <p>Model represents a greek cross church from <em>"Manoscritto B, foglio 21 r."</em>.It is organized on two perpendicular axis with central octagon and four identical chapels. On the outside church seems to be divided in two parts by a continous frame: the lower one includes three couple of mullioned windows and four doors topped by a triangular tympanum; the upper section is made of five tholobate with relatives domes from which central dome stands  out organizing volumes and masses of the building.</p>
+                    <p>Formal characteriations of elements like capital, frames, moldings and ornaments are totally absent: the <a href="http://www.federica.unina.it/architettura/disegno-architettura/ordine-architettonico-2/">vitruvian orders</a>, a theme of long discussion in the Renaissance architectonical were not so important to Leonardo if compared with the possibility of mixing spaces and volumes.</p>
+                    <!-- <p> Il modello rappresenta una chiesa a croce greca organizzata su due assi perpendicolari con ottagono centrale e quattro cappelle identiche. Esternamente la chiesa appare divisa in due parti da una cornice continua, la parte inferiore comprende tre coppie di finestre bifore e quattro porte sormontate da un timpano triangolare; la parte superiore è costituita da cinque tamburi con relative cupole tra le quali spicca quella centrale che organizza gerarchicamente i volumi e le masse plastiche dell'edificio.
+                    </p>
+                    <p> Le caratterizzazioni formali di elementi come capitelli, cornici, modanature e fregi sono assenti: gli <a href="http://www.federica.unina.it/architettura/disegno-architettura/ordine-architettonico-2/">ordini vitruviani</a>, fondamentali nel dibattito architettonico rinascimentale, sono per Leonardo infatti secondari rispetto alle possibilità combinatorie degli spazi e dei volumi.</p>
+                    -->
+
+                    
+                    <!--<p style="text-align:right;"><em>Manoscritto B, foglio 21 r.</em></p>-->
+                </article>
+                <br />
+                <h1 style="font-size:32px;">Plasm Model Description:</h1>
+                <article id="plasm">
+                    <p> Thanks to its central symmetry the model can be decomposed in few main elements that can be reused through affine transformations to build the final 3D representation. Furthermore, being the church strongly geometrical dependent, all the elements which it is made of are created proportionally from mainly a single input: the circumscribed circle radius value on the octagonal base.</p>
+                </article>
+                <br />
+                <article>
+                <article id="plan">
+                    <h2>Plan and 3D lower section</h2>
+                    <a title="" href="index.html"><a href="images/completePlan.jpg" rel="single"  class="pirobox" title="Plastic Model"><img class="imgright" alt="plastic_model" width="100px" height="80px" src="images/completePlan.jpg" /></a></a>
+                    <p> The church plan has been modeled by replicating a corner section of the octagonal structure. This section is made of half chapel and an octagonal corner which takes half of the door seen from the ouside and an half inner door that link che central body to the chapel. </p>
+                    <h4>Plasm view - Plan</h4>
+                    <ul>
+                        <li><a href="project/index.html?model=planCornerSection">    Plan corner section</a></li>
+                        <li><a href="project/index.html?model=completePlan">    Full plan</a></li>
+                    </ul>
+                    <br />
+                    <h4>Plasm view - 3d Lower level</h4>
+                    <ul>
+                        <li><a href="project/index.html?model=lowerLevelCornerSection">    3D Corner section</a></li>
+                        <li><a href="project/index.html?model=completeLowerLevel">    3D Lower level</a></li>
+                    </ul>
+                    <br />
+                </article>
+                <article id="domes">              
+                    <h2>Domes</h2>
+                    <a title="" href="index.html"><a href="images/dome.jpg" rel="single"  class="pirobox" title="Plastic Model"><img class="imgright" alt="plastic_model" width="100px" height="80px" src="images/dome.jpg" /></a></a>
+                    <p> The dome base is either octogonal so it can be designed as a section replicated on the bidimensional plane. It consist in a tholobate on which rely the dome. On the dome's top is present a roof lantern that has the function of provide natural light into the space or room below.</p>
+                    <h4>Plasm view - Dome</h4>
+                    <ul>
+                        <li><a href="project/index.html?model=drawDomeSection">    3D Dome section</a></li>
+                        <li><a href="project/index.html?model=drawDomeComplete">    3D Complete Dome</a></li>
+                    </ul>
+                    <br />
+                </article>
+
+                <article id="complete">
+                    <h2>Complete building</h2>
+                    <a title="" href="index.html"><a href="images/completeChurch.jpg" rel="single"  class="pirobox" title="Plastic Model"><img class="imgright" alt="plastic_model" width="100px" height="80px" src="images/completeChurch.jpg" /></a></a>
+                    <p>Here is the final building. In order to enhance performance instead the plasm-fun.js public functions I used directly <code>Model</code> and <code>Struct</code> function like <code>translate()</code> and <code>rotate()</code>.</p>
+                    <p>Furthermore during the development of the model I had to solve some bugs or inefficences pf <code>Plasm.js</code> environmentas reported in issue <a href="https://github.com/cvdlab/plasm.js/issues/40">#40</a> and <a href="https://github.com/cvdlab/plasm.js/issues/41">#41</a>: in particular with a fix on the first issue I was able to load compleatly the model without having the browser crash.</p>
+                    <h4>Plasm view - Church</h4>
+                    <ul>
+                        <li><a href="project/index.html?model=churchCornerSection">    3D Half Church</a></li>
+                        <li><a href="project/index.html?model=completeChurch">    3D Complete Church</a></li>
+                    </ul>
+                    <br />
+                </article>
+
+                <article id="gallery">
+                    <h2>Gallery</h2>
+                    <p> A small gallery with all my sketches and image of the church.</p>
+                    <!--Copy and paste this code, just change your url path to images-->
+
+                    <a href="images/00026_01.jpg" rel="gallery"  class="pirobox_gall" title="Plastic model 1">
+                        <img class="imgallery" alt="plastic_model" src="images/00026_01.jpg"  />
+                    </a>
+
+                    <a href="images/00026_02.jpg" rel="gallery"  class="pirobox_gall" title="Plastic model 2">
+                        <img class="imgallery" alt="plastic_model" src="images/00026_02.jpg"  />
+                    </a>
+                    
+                    <a href="images/completePlan.jpg" rel="gallery"  class="pirobox_gall" title="Church plan">
+                        <img class="imgallery" alt="Church plane" src="images/completePlan.jpg"  />
+                    </a>
+
+                    <a href="images/completeLowerLevel.jpg" rel="gallery"  class="pirobox_gall" title="Church lower level">
+                        <img class="imgallery" alt="Church lower level" src="images/completeLowerLevel.jpg"  />
+                    </a>
+
+                    <a href="images/dome.jpg" rel="gallery"  class="pirobox_gall" title="Church dome">
+                        <img class="imgallery" alt="Church dome" src="images/dome.jpg"  />
+                    </a>
+
+                    <a href="images/completeChurch.jpg" rel="gallery"  class="pirobox_gall" title="Church">
+                        <img class="imgallery" alt="Church" src="images/completeChurch.jpg"  />
+                    </a>
+
+                    <a href="images/handDraw1.jpg" rel="gallery"  class="pirobox_gall" title="Hand made sketch 1">
+                        <img class="imgallery" alt="Hand made sketch 1" src="images/handDraw1.jpg"  />
+                    </a>
+
+                    <a href="images/handDraw2.jpg" rel="gallery"  class="pirobox_gall" title="Hand made sketch 2">
+                        <img class="imgallery" alt="Hand made sketch 2" src="images/handDraw2.jpg"  />
+                    </a>
+
+                    <a href="images/handDraw3.jpg" rel="gallery"  class="pirobox_gall" title="Hand made sketch 3">
+                        <img class="imgallery" alt="Hand made sketch 3" src="images/handDraw3.jpg"  />
+                    </a>
+
+                    <!--
+                    <a href="images/handDraw2.jpg" rel="gallery"  class="pirobox_gall" title="your title">
+                        <img class="imgallery" alt="plastic_model" src="images/handDraw2.jpg"  />
+                    </a> -->
+                </article>
+            
+            </section>
+            
+            <aside id="sidebar">
+            
+                <h3>Index</h3>
+                <ul class="clearfix">
+                    <li><a title="home" href="index.html">Home</a></li>
+                    <li><a title="History" href="index.html#history">Architectural hints</a></li>
+                    <li><a title="Description" href="index.html#description">Description</a></li>
+                    <li><a href="index.html#plasm">Plasm model description</a></li>
+                    <li><a title="plan" href="index.html#plan">Plan</a></li>
+                    <li><a title="domes" href="index.html#domes">Domes</a></li>
+                    <li><a title="fullModel" href="index.html#complete">Complete building</a></li>
+                    <li><a title="gallery" href="index.html#gallery">Gallery</a></li>
+                </ul>
+                <p></p>
+                <h3 id="social">Social Networking</h3>
+                <ul class="clearfix">
+                    <li><a title="github" href="https://github.com/Rayzen">GitHub</a></li>
+                    <li><a title="twitter" href="https://twitter.com/R4y23n">Twitter</a></li>
+                    <li><a title="email" href="mailto:mynickname_[at]_gmail_[dot]_com?Subject=[PlasmFinalProject]&Body=Replace correctly symbols in my email address and mynickname with my twitter nickname in lower case.">Mail me</a></li>
+                </ul>
+                
+            </aside>
+            
+        </section>
+
+        <footer>
+        
+           <!-- 
+            <section id="footertop">
+            
+            <aside class="footer-column">
+                <h4>Footer Section 1</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vehicula sodales dolor vitae pellentesque. Vestibulum non urna nisi, et viverra nunc. Suspendisse vel posuere tellus. Praesent nec ligula dolor, vel lobortis ligula. Donec fringilla adipiscing elit tempus dignissim.</p>
+            </aside>
+            
+            <aside class="footer-column">
+                <h4>Footer Section 2</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vehicula sodales dolor vitae pellentesque. Vestibulum non urna nisi, et viverra nunc. Suspendisse vel posuere tellus. Praesent nec ligula dolor, vel lobortis ligula. Donec fringilla adipiscing elit tempus dignissim.</p>
+            </aside>
+            
+            </section>
+
+            -->
+            
+            <section id="copyright">
+                <h4>Copyright</h4>
+                <p>Antonio Zoccoli</p>
+            </section>
+            
+            <section id="templatecopy">
+                <p style="text-align:right">Template design by <a title="derby web design" href="http://www.tristarwebdesign.co.uk">tristar web design</a></p>
+            </section>
+        
+        </footer>
+      
+    </div>
+
+</body>
+</html>

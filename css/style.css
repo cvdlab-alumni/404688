@@ -1,0 +1,212 @@
+/* Eric Meyer Reset CSS File */
+
+@import url("reset.css");
+
+/* Template Layout CSS */
+
+body
+{
+	background: #111;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #888;
+	padding: 20px;
+	font-size: 14px;
+}
+
+a { color: #9C0; }
+a:hover { color: #FFF; }
+p { margin: 0 0 15px 0; text-align: justify;}
+
+a img.imgright { float: right; padding: 5px; margin: 0 0 10px 15px; border: 1px solid #333; width: 20%; height: 20%; }
+a:hover img.imgright { border: 5px solid #9C0; padding: 1px; margin: 0 0 10px 15px; }
+
+/* Gallery */
+a img.imgallery { padding: 5px; margin: 0 0 10px 15px; border: 1px solid #333; width: 20%; height: 20%;}
+a:hover img.imgallery { border: 5px solid #9C0; padding: 1px; margin: 0 0 10px 15px; }
+
+h1, h2, h3, h4, h5 { font-weight: bold; font-size: 24px; margin: 0 0 15px 0; color: #FFF; text-shadow: 2px 2px 2px #000000; }
+
+/* Start Wrapper Container */
+h4 { font-size: 14px; }
+#wrapper
+{
+	width: 940px;
+	margin: 0 auto;
+}
+
+/* End Wrapper Container */
+
+/* Start Nav Styles */
+
+nav
+{
+	width: 940px;
+	height: 40px;
+}
+
+nav ul.menu
+{
+	float: right;
+}
+
+nav ul.menu li
+{
+	display: inline;
+}
+
+nav ul.menu li a
+{
+	float: left;
+	line-height: 40px;
+	padding: 0 20px;
+	background: #111;
+	color: #FFF;
+	font-weight: bold;
+}
+
+nav ul.menu li a.active
+{
+	background: #191919;
+	color: #FFF;
+}
+
+nav ul.menu li a:hover
+{
+	
+	color: #9C0;
+}
+
+/* Start Header Styles */
+
+header
+{
+	width: 900px;
+	height: 120px;
+	padding: 0 20px;
+	background: #191919;
+}
+
+header h1
+{
+	font-size: 42px;
+	line-height: 120px;
+	text-align: right;
+	font-weight: bold;
+	letter-spacing: -2px;
+	
+	text-shadow: 2px 2px 2px #000000;
+}
+
+header h1 a
+{
+	color: #FFF;
+}
+
+header h1 a:hover
+{
+	color: #9C0;
+}
+
+/* End Header Styles */
+
+/* Start Main Styles */
+
+section#main
+{
+	width: 940px;
+	line-height: 24px;
+}
+
+section#content
+{
+	float: left;
+	width: 560px;
+	padding: 20px;
+}
+
+aside#sidebar
+{
+	float: left;
+	width: 300px;
+	padding: 20px;
+}
+
+aside#sidebar ul
+{
+	margin: 0 0 15px 0;
+}
+
+aside#sidebar ul li
+{
+	display: block;
+}
+
+aside#sidebar ul li a
+{
+	float: left;
+	width: 280px;
+	padding: 6px 10px;
+	border-left: 3px solid #222;
+	margin: 0 0 5px 0;
+	line-height: 20px;
+}
+
+aside#sidebar ul li a:hover
+{
+	background: #9C0;
+	border-left: 3px solid #9C0;
+	color: #111;
+}
+
+article ul li { margin-left: 10px; list-style-type: disc; list-style-position: inside;}
+
+/* End Main Styles */
+
+/* Start Footer Styles */
+
+footer section#footertop
+{
+	width: 940px;
+	line-height: 22px;
+	border-top: 1px dotted #333;
+}
+
+aside.footer-column
+{
+	float: left;
+	width: 430px;
+	padding: 20px;
+}
+
+section#copyright
+{
+	clear: both;
+	width: 900px;
+	padding: 20px;
+	line-height: 22px;
+	font-size: 12px;
+	text-align: left;
+	border-top: 1px dotted #333;
+}
+
+/* End Footer Styles */
+
+/* Start Template Copyright Styles */
+
+section#templatecopy
+{
+	clear: both;
+	width: 900px;
+	padding: 20px;
+	line-height: 22px;
+	text-align: right;
+	font-size: 12px;
+	border-top: 1px dotted #333;
+}
+
+section#templatecopy a
+{
+	font-weight: bold;
+}
+
+/* End Footer Styles */
