@@ -89,12 +89,6 @@ var centralPlan = function(r){
 	};
 };
 
-//var plan2d = function(r) {
-//	var basement = multiLevelChurchPlan(3)(churchPlan(r*1.25)(.1));
-//	var plan = centralPlan(r)(4);
-//	return STRUCT([basement,plan]);
-//};
-
 /* Church half side section */
 var domeBaseStripe = function(r) {
 	return function(n){
@@ -128,17 +122,6 @@ var domeOgive = function(r){
 
 	};
 };
-
-
-//var domeBase = function(r){
-//	return function(n){
-//		return function(l){
-//			var strip = domeBaseStripe(r)(n);
-//			var d = STRUCT(REPLICA(l)([strip, R([0,1])([-PI/4])]));
-//			return d;
-//		};
-//	};
-//};
 
 /* Church dome section */
 var domeSection = function(r,n,l){
@@ -343,15 +326,6 @@ var octagonalRingSection = function(r,a){
 	return interLevel;
 };
 
-//var intermediateLevelRing = function(r){
-//	return function(n){
-//		var ors0 = octagonalRingSection(r);
-//		var ors1 = S([0])([-1])(ors0);
-//		var ors = STRUCT([ors0,ors1]);
-//		return STRUCT(REPLICA(n)([ors,R([0,1])(PI/2)]));
-//	};
-//};
-
 /* Church complete intermediate level */
 var octagonalRingCorner = function(r){
 	return function(delta){
@@ -486,20 +460,6 @@ var complete3dChurch = function(r,n){
 	var c = STRUCT([c0,c1]);
 	return STRUCT(REPLICA(n)([c, R([0,1])([-PI/2])]));
 };
-
-//var buildChurch = function(n){
-//	var a = multiLevelChurchPlan(3)(churchPlan(1.25)(.1));
-//	var b = centralPlan(1)(4);
-//	var c01 = cornerSection3d(1);
-//	var c02 = S([0])([-1])(c01).rotate([0,1],-PI/2);
-//	var c = STRUCT([c01,c02]);
-//
-//	c = STRUCT(REPLICA(n)([c,R([0,1])(PI/2)]));
-//	DRAW(a);
-//	DRAW(b);
-//	DRAW(c);
-//
-//};
 
 /* Project page drawing functions */
 var planCornerSection = function(){
