@@ -1,1 +1,1 @@
-The project page is <a href"https://rayzen.github.com/cg-projet">here</a>
+The project page is <a href"https://cvdlab-cg.github.com/404688">here</a>
