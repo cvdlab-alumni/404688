@@ -1,15 +1,6 @@
 console.log('test');
 
-//var load = function (id, n) {
-//  var url = "https://raw.github.com/cvdlab-cg/" + id 
-//    + "/master/2012-05-04/exercise" + n + ".js";
-//
-//  var script = document.createElement('script');
-//  script.src = url;
-//  document.body.appendChild(script);
-//
-//  return url;
-//};
+/* Domain and other usefull object definition */
 var palette = {
 	white: [1.2,1.2,1.2,1],
 	brick: [0.56,0.14,0.14,1]
@@ -23,6 +14,7 @@ var dom2d = DOMAIN([
 
 var domeDomain = DOMAIN([[0,1],[0,1]])([12,12]);
 
+/* Octagonal base */
 var octagonPlan = function (a) {
 	return function(l){
 		return SIMPLICIAL_COMPLEX([[0,0],[-l,-a],[l,-a],[a,-l],[a,l],[l,a],[-l,a],[-a,l],[-a,-l]])
@@ -30,6 +22,8 @@ var octagonPlan = function (a) {
 	};
 };
 
+
+/* Single layer church base */
 var churchPlan = function(r){
 	return function(h){
 		var l = r*SIN(PI/8);
@@ -47,6 +41,7 @@ var churchPlan = function(r){
 	};
 };
 
+/* Multilevel church base */
 var multiLevelChurchPlan = function(l){
 	return function(model){
 		return STRUCT(REPLICA(l)([model,T([2])([-0.1]),S([0,1])([1.1,1.1])]));
@@ -54,6 +49,7 @@ var multiLevelChurchPlan = function(l){
 	};
 };
 
+/* Plan corner section */
 var planSection = function(r){
 	var p00 = [-r*SIN(PI/40),-r*COS(PI/8)];
 	var p01 = [-r*SIN(PI/8),-r*COS(PI/8)];
@@ -83,6 +79,7 @@ var planSection = function(r){
 
 };
 
+/* Complete church plan*/
 var centralPlan = function(r){
 	return function(n){
 		var s0 = planSection(r);
@@ -92,13 +89,7 @@ var centralPlan = function(r){
 	};
 };
 
-var plan2d = function(r) {
-	var basement = multiLevelChurchPlan(3)(churchPlan(r*1.25)(.1));
-	var plan = centralPlan(r)(4);
-	return STRUCT([basement,plan]);
-};
-
-
+/* Church half side section */
 var domeBaseStripe = function(r) {
 	return function(n){
 		var dx = r*COS(PI/n);
@@ -112,17 +103,8 @@ var domeBaseStripe = function(r) {
 	};
 };
 
-var domeBase = function(r){
-	return function(n){
-		return function(l){
-			var strip = domeBaseStripe(r)(n);
-			var d = STRUCT(REPLICA(l)([strip, R([0,1])([-PI/4])]));
-			return d;
-		};
-	};
-};
-
-var domeTrave = function(r){
+/* Church dome ogive */
+var domeOgive = function(r){
 	return function(n){
 		var dy = r*COS(PI/(n));
 		var dx = r*SIN(PI/(n))*.25;
@@ -141,13 +123,15 @@ var domeTrave = function(r){
 	};
 };
 
+/* Church dome section */
 var domeSection = function(r,n,l){
 	var db = domeBaseStripe(r)(n).color(palette.brick);
-	var dt = domeTrave(r)(n);
+	var dt = domeOgive(r)(n);
 	var dc= roofLantern(r).translate([2], [r]);
 	return STRUCT([db,dt,dc]);
 };
 
+/* Church outer door */
 var doorA = function(r){
 
 	var l = r*SIN(PI/8);
@@ -218,6 +202,7 @@ var doorA = function(r){
 	return STRUCT([tA,tB,tC]);
 };
 
+/* Church inner door and roofLantern wall*/
 var doorB = function(r){
 
 	var l = r*SIN(PI/8);
@@ -240,6 +225,7 @@ var doorB = function(r){
 
 };
 
+/* Church lower level corner section */
 var cornerSection3d = function(r){
 	var l = r*SIN(PI/8);
 	var a = r*COS(PI/8);
@@ -276,6 +262,7 @@ var cornerSection3d = function(r){
 
 };
 
+/* Church complete lower level */
 var centralPlan3d = function(r){
 	return function(n){
 		var s0 = cornerSection3d(r).rotate([0,1],PI/4);
@@ -285,6 +272,7 @@ var centralPlan3d = function(r){
 	};
 };
 
+/* Corner axis used to join various element such as chapel walls or roofLantern walls */
 var cornerAxis = function(ang,r){
 		return SIMPLICIAL_COMPLEX([
 									[0,0],
@@ -295,43 +283,7 @@ var cornerAxis = function(ang,r){
 								]);
 };
 
-// var halfChapWall = function(r,a){
-// 	var l = r*SIN(PI/8);
-	
-// 	var seg00 = SIMPLEX_GRID([[l/6],[.1],[-l/6,5*l/3,-l/6]]);
-// 	var seg01 = SIMPLEX_GRID([[-l/2,l/6],[.1],[-2/3*l,2*l/3,-2/3*l]]);
-// 	var seg10 = SIMPLEX_GRID([[l],[.1],[l/6,-9*l/6,l/6]]);
-// 	var seg11 = SIMPLEX_GRID([[-l/2,l/2],[.1],[-l/2,l/6,-2*l/3,l/6,-l/2]]);
-// 	var seg12 = SIMPLEX_GRID([[-l/6,5/6*l],[-.04,.02,-.04],[-l/6,5*l/3,-l/6]]).color(palette.white);;
-
-// 	var wall = STRUCT([seg00,seg01,seg10,seg11,seg12]);
-
-// 	wall = wall.translate([1],[-.1]);
-	
-// 	return wall;
-// };
-
-// var chapWall = function(r,a){
-// 	var w0 = STRUCT([halfChapWall(r,a),cornerAxis(a,r).extrude([11/6*r*SIN(PI/8)])]);
-// 	var w1 = S([0])([-1])(w0).rotate([0,1],-a*2);
-// 	var w2 = halfChapWall(r,a).scale([0],[-1]).rotate([0,1],PI/2).translate([0,1],[-.1,2*r*SIN(PI/8)]);
-// 	return STRUCT([w0,w1,w2]);
-// }
-
-// var chapWalls = function(r){
-// 	return function(n){
-// 		return function(a){
-// 			var w0 = STRUCT([halfChapWall(r,a),cornerAxis(a,r).extrude([11/6*r*SIN(PI/8)])]);
-// 			var w1 = S([0])([-1])(w0).rotate([0,1],-a*2);
-
-// 			var w = STRUCT([w0,w1]).translate([0,1],[-r*SIN(a),-r*COS(a)]);
-
-// 			return STRUCT(REPLICA(n)([w, R([0,1])(a*2)]));
-
-// 		};
-// 	};
-// };
-
+/* Church intermediate level section betwetn lower level and domes */
 var octagonalRingSection = function(r,a){
 	var l = r*SIN(PI/8);
 	var a = r*COS(PI/8);
@@ -374,15 +326,7 @@ var octagonalRingSection = function(r,a){
 	return interLevel;
 };
 
-var intermediateLevelRing = function(r){
-	return function(n){
-		var ors0 = octagonalRingSection(r);
-		var ors1 = S([0])([-1])(ors0);
-		var ors = STRUCT([ors0,ors1]);
-		return STRUCT(REPLICA(n)([ors,R([0,1])(PI/2)]));
-	};
-};
-
+/* Church complete intermediate level */
 var octagonalRingCorner = function(r){
 	return function(delta){
 		var l = r*SIN(PI/8);
@@ -398,7 +342,6 @@ var octagonalRingCorner = function(r){
 		return STRUCT([octCorner0,octCorner1]);
 	};
 };
-
 
 /* Roof lantern */
 var roofLantern = function(r){
@@ -426,20 +369,7 @@ var roofLantern = function(r){
 	return camp;
 };
 
-var buildChurch = function(n){
-	var a = multiLevelChurchPlan(3)(churchPlan(1.25)(.1));
-	var b = centralPlan(1)(4);
-	var c01 = cornerSection3d(1);
-	var c02 = S([0])([-1])(c01).rotate([0,1],-PI/2);
-	var c = STRUCT([c01,c02]);
-
-	c = STRUCT(REPLICA(n)([c,R([0,1])(PI/2)]));
-	DRAW(a);
-	DRAW(b);
-	DRAW(c);
-
-};
-
+/* Half chapel's wall*/
 var halfChapWall = function(r,a){
 	var l = r*SIN(PI/8);
 	
@@ -455,6 +385,7 @@ var halfChapWall = function(r,a){
 	return wall;
 };
 
+/* Complete chapel's wall */
 var chapWall = function(r,a){
 	var l = r*SIN(PI/8);
 	var w0 = STRUCT([halfChapWall(r,a),cornerAxis(a,r).extrude([11/6*r*SIN(PI/8)])]);
@@ -463,12 +394,13 @@ var chapWall = function(r,a){
 	var col = SIMPLEX_GRID([[.25*l],[.1],[11*l/6]]).translate([0,1],[-.25*l,-.1]);
 	w2 = STRUCT([w2,col]).scale([0],[-1]).rotate([0,1],PI/2).translate([0,1],[-.1,5*l/3]);
 	return STRUCT([w0,w1,w2]);
-}
+};
 
+/* tholobate walls */
 var chapWalls = function(r){
 	return function(a){
 		var w0 = halfChapWall(r,a).scale([0],[1.15]);
-		var w1 = STRUCT([w0,cornerAxis(a,r).extrude([11/6*r*SIN(PI/8)])]);
+		var w1 = STRUCT([w0,cornerAxis(a,1).extrude([11/6*r*SIN(PI/8)])]);
 		var w2 = S([0])([-1])(w1).rotate([0,1],-a*2);
 
 		return STRUCT([w2,w1]).translate([0,1],[-r*SIN(a),-r*COS(a)]);
@@ -477,6 +409,7 @@ var chapWalls = function(r){
 	};
 };
 
+/* Chapel dome section */
 var chapelDome = function(r){
 	var l = r*SIN(PI/8);
 	var a = r*COS(PI/8);
@@ -491,6 +424,7 @@ var chapelDome = function(r){
 
 };
 
+/* Central dome section */
 var centralDomeSection = function(r){
 	var l = r*SIN(PI/8);
 	var a = r*COS(PI/8);
@@ -501,10 +435,12 @@ var centralDomeSection = function(r){
 	return STRUCT([centralChapelWallSection,centralDomeSection,centralChapelRingSection]);
 };
 
+/* Central dome complete */
 var centralDome = function(r,n){
 	return STRUCT(REPLICA(n)([centralDomeSection(r),R([0,1])([-PI/4])]));
 };
 
+/* Church corner section with central dome section and chapel's dome */
 var complete3dCornerSection = function(r){
 	var l = r*SIN(PI/8);
 	var a = r*COS(PI/8);
@@ -516,6 +452,7 @@ var complete3dCornerSection = function(r){
 	return STRUCT([c, chap, cDome]);
 };
 
+/* N church sections */
 var complete3dChurch = function(r,n){
 	var c0 = complete3dCornerSection(r);
 	var c1 = S([0])([-1])(c0).rotate([0,1],[-PI/2]);
